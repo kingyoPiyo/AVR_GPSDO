@@ -1,0 +1,5 @@
+.vscode/
+.vs/
+/src/AVR_GPSDO/Debug/
+/src/AVR_GPSDO/Release/
+/src/AVR_GPSDO/*.xml
