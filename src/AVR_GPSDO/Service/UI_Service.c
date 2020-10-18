@@ -249,26 +249,26 @@ void UI_Main(void)
     static uint8_t mode = 0;
     ENUM_ENCODER_DIR tEncDir;
 
-	// ALM表示
-	if (NMEA_GetAramStatus())
-	{
+    // ALM表示
+    if (NMEA_GetAramStatus())
+    {
         LED_SetState(ENUM_LED_SEL_ALM, ENUM_LED_STATE_ON);
-	}
+    }
     else
     {
-		LED_SetState(ENUM_LED_SEL_ALM, ENUM_LED_STATE_OFF);
-	}
+        LED_SetState(ENUM_LED_SEL_ALM, ENUM_LED_STATE_OFF);
+    }
 
-	// LOCK表示（10MHz±2mHz以内で点灯）
+    // LOCK表示（10MHz±2mHz以内で点灯）
     tFreq = FCNT_GetFreq(ENUM_FCNT_FREQ_GATET_1000, &tAveCnt);
-	if (tFreq >= 9999999998 && tFreq <= 10000000002)
-	{
-		LED_SetState(ENUM_LED_SEL_LOCK, ENUM_LED_STATE_ON);
-	}
+    if (tFreq >= 9999999998 && tFreq <= 10000000002)
+    {
+        LED_SetState(ENUM_LED_SEL_LOCK, ENUM_LED_STATE_ON);
+    }
     else
     {
-		LED_SetState(ENUM_LED_SEL_LOCK, ENUM_LED_STATE_OFF);
-	}
+        LED_SetState(ENUM_LED_SEL_LOCK, ENUM_LED_STATE_OFF);
+    }
 
     // ボタン状態取得
     if (ENCODER_GetPushSWState() == ENUM_ENCODER_PSWST_PRESSED)
@@ -276,7 +276,7 @@ void UI_Main(void)
         if (++mode >= ENUM_UI_MENU_NUM) mode = 0;
     }
 
-	// 各種メニュー表示
+    // 各種メニュー表示
     lcd_gotoxy(0, 0);
     tEncDir = ENCODER_GetDir();
     ui_menuFuncTbl[mode](tEncDir);

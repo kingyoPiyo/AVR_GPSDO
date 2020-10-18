@@ -63,11 +63,11 @@ ENUM_ENCODER_PSWST ENCODER_GetPushSWState(void)
     uint8_t enc_psw;
 
     enc_psw = (PIND & 0x10) >> 4;
-	if (enc_psw == 0 && enc_psw_old == 1)
-	{
-		tSt = ENUM_ENCODER_PSWST_PRESSED;
-	}
-	enc_psw_old = enc_psw;
+    if (enc_psw == 0 && enc_psw_old == 1)
+    {
+        tSt = ENUM_ENCODER_PSWST_PRESSED;
+    }
+    enc_psw_old = enc_psw;
 
     return tSt;
 }
